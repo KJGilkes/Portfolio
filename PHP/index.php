@@ -1,3 +1,3 @@
 <?php
-  include 'view/home.php';
+  include 'controller/main.php';
  ?>
