@@ -8,6 +8,7 @@ The purpose of this repository is to show off a collective of works that I have 
 - [PHP Routing](https://github.com/KJGilkes/Portfolio/tree/master/PHP)
 
 ### Design
+- [Logo](https://github.com/KJGilkes/Portfolio/tree/master/Design)
 
 # Contact Info
 Phone number: (904)-206-2804
