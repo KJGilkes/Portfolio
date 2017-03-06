@@ -1,1 +1,1 @@
-<?php echo 'This is the homepage.'; ?>
+<p> This is the homepage.</p>
