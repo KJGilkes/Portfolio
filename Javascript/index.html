@@ -13,7 +13,7 @@
       </ul>
     </nav>
     <h1>Currency exchange calculator</h1>
-    {{ greeting }}
+    <!-- {{ greeting }} -->
     <form>
       <label>
         Amount:
@@ -55,9 +55,15 @@
             <option value='ZAR'>South African Rand</option>
           </select>
       </label>
+      <button type='submit' id='btn'>Submit</button>
     </form>
+    <button type='submit' id='button'>See Current Rates</button>
+    <div id='currencies'>
+    </div>
   </body>
   <footer>
     Project created by Khalil Gilkes
   </footer>
+  <script type='text/javascript' src='js/money.js'></script>
+  <script type='text/javascript' src='js/call.js'></script>
 </html>
