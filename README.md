@@ -5,10 +5,13 @@ The purpose of this repository is to show off a collective of works that I have 
 
 # Table of Contents
 ### PHP
-- [PHP Routing](https://github.com/KJGilkes/Portfolio/tree/master/PHP)
+- [PHP Routing](https://github.com/KJGilkes/Portfolio/tree/master/PHP) - A php project meant to practice routing with the slim framework.
 
 ### Design
-- [Logo](https://github.com/KJGilkes/Portfolio/tree/master/Design)
+- [Logo](https://github.com/KJGilkes/Portfolio/tree/master/Design) - My personal logo that represents me and my overall brand.
+
+### Javascript
+- [Foreign Currency calculator](https://github.com/KJGilkes/Portfolio/tree/master/Javascript) - An application that converts foreign currency based on the current exchange rate to another currency.
 
 # Contact Info
 Phone number: (904)-206-2804
