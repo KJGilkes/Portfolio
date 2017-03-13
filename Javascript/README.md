@@ -1,4 +1,4 @@
-# PHP Routing
+# Foreign Exchange Calculator
 
 ## Description
 This Project is a foreign currency calculator that takes the amount and the type of currency the user gives it and converts it into another currency.
