@@ -1,71 +1,80 @@
 <html ng-app='CurrencyCalculator'>
-  <head>
-    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'/>
-    <link href='css/styles.css' rel='stylesheet'/>
-  </head>
-  <body ng-controller='bodyController'>
+
+<head>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
+    <link href='css/styles.css' rel='stylesheet' />
+</head>
+
+<body ng-controller='bodyController'>
     <nav class='navbar navbar-default navbar-default-top'>
-      <ul class='nav navbar-nav'>
-        <li><a href='index.html'>Home</a></li>
-        <li><a href='about.html'>About</a></li>
-        <li><a href='contact.html'>Contact info</a></li>
-      </ul>
+        <ul class='nav navbar-nav'>
+            <li><a href='index.html'>Home</a></li>
+            <li><a href='about.html'>About</a></li>
+            <li><a href='contact.html'>Contact info</a></li>
+        </ul>
     </nav>
     <div class='container mainContent'>
-      <h1 class='header'>Currency exchange calculator</h1>
-      <!-- {{ greeting }} -->
-      <form class='form-inline text-center'>
-        <div class='form-group'>
-          <label>
-            Amount:
-              <input type='text' placeholder='USD' class='form-control'/>
-          </label>
+        <h1 class='header'>Currency exchange calculator</h1>
+        <!-- {{ greeting }} -->
+        <form class='form-inline text-center'>
+            <div class='form-group'>
+                <label>
+          Amount:
+            <input type='text' name='Amount' value='' id='amount' class='form-control'/>
+        </label>
+            </div>
+            <div class='form-group'>
+                <label>
+          Currency:
+            <select class='form-control' id='currencyType'>
+              <option value='AUD'>Australian Dollar</option>
+              <option value='BGN'>Bulgarian Lev</option>
+              <option value='BRL'>Brazilian Real</option>
+              <option value='CAD'>Canadian Dollar</option>
+              <option value='CHF'>Swiss Franc</option>
+              <option value='CNY'>Chinese Yuan</option>
+              <option value='CZK'>Czech Republic Koruna</option>
+              <option value='DKK'>Danish Krone</option>
+              <option value='GBP'>British Pound</option>
+              <option value='HKD'>Hong Kong Dollar</option>
+              <option value='HRK'>Croatian Kuna</option>
+              <option value='HUF'>Hungarian Forint</option>
+              <option value='IDR'>Idonesian Rupiah</option>
+              <option value='ILS'>Israeli New Shekel</option>
+              <option value='INR'>Indian Rupee</option>
+              <option value='JPY'>Japanese Yen</option>
+              <option value='KRW'>South Korean Won</option>
+              <option value='MXN'>Mexican Peso</option>
+              <option value='MYR'>Malaysian Ringgit</option>
+              <option value='NOK'>Norwegian Krone</option>
+              <option value='NZD'>New Zealand Dollar</option>
+              <option value='PHP'>Philippine Peso</option>
+              <option value='PLN'>Polish Zloty</option>
+              <option value='RON'>Romanian Leu</option>
+              <option value='RUB'>Russian Ruble</option>
+              <option value='SEK'>Swedish Krona</option>
+              <option value='SGD'>Singapore Dollar</option>
+              <option value='THB'>Thai Baht</option>
+              <option value='TRY'>Turkish Lira</option>
+              <option value='USD'>US Dollar</option>
+              <option value='ZAR'>South African Rand</option>
+            </select>
+        </label>
+            </div>
+            <button class='btn btn-default' type='submit' id='btn'>Submit</button>
+        </form>
+        <div class='text-center'>
+            <button class='btn btn-primary' type='submit' id='button'>See Current Rates</button>
         </div>
-        <div class='form-group'>
-          <label>
-            Currency:
-              <select class='form-control' currency>
-                <option value='AUD'>Australian Dollar</option>
-                <option value='BGN'>Bulgarian Lev</option>
-                <option value='BRL'>Brazilian Real</option>
-                <option value='CAD'>Canadian Dollar</option>
-                <option value='CHF'>Swiss Franc</option>
-                <option value='CNY'>Chinese Yuan</option>
-                <option value='CZK'>Czech Republic Koruna</option>
-                <option value='DKK'>Danish Krone</option>
-                <option value='GBP'>British Pound</option>
-                <option value='HKD'>Hong Kong Dollar</option>
-                <option value='HRK'>Croatian Kuna</option>
-                <option value='HUF'>Hungarian Forint</option>
-                <option value='IDR'>Idonesian Rupiah</option>
-                <option value='ILS'>Israeli New Shekel</option>
-                <option value='INR'>Indian Rupee</option>
-                <option value='JPY'>Japanese Yen</option>
-                <option value='KRW'>South Korean Won</option>
-                <option value='MXN'>Mexican Peso</option>
-                <option value='MYR'>Malaysian Ringgit</option>
-                <option value='NOK'>Norwegian Krone</option>
-                <option value='NZD'>New Zealand Dollar</option>
-                <option value='PHP'>Philippine Peso</option>
-                <option value='PLN'>Polish Zloty</option>
-                <option value='RON'>Romanian Leu</option>
-                <option value='RUB'>Russian Ruble</option>
-                <option value='SEK'>Swedish Krona</option>
-                <option value='SGD'>Singapore Dollar</option>
-                <option value='THB'>Thai Baht</option>
-                <option value='TRY'>Turkish Lira</option>
-                <option value='USD'>US Dollar</option>
-                <option value='ZAR'>South African Rand</option>
-              </select>
-          </label>
-        </div>
-        <button type='submit' class='btn btn-default'>Submit</button>
-      </form>
+        <p class='text-center' id='currencies'></p>
     </div>
-    <footer class='footer'>
-      Project created by Khalil Gilkes
-    </footer>
-  </body>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js'></script>
-  <script src='js/main.js'></script>
+</body>
+<footer class='footer'>
+    Project created by Khalil Gilkes
+</footer>
+<script type='text/javascript' src='js/money.js'></script>
+<script type='text/javascript' src='js/call.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js'></script>
+<script src='js/main.js'></script>
+
 </html>
