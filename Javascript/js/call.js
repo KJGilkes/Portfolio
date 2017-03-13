@@ -50,13 +50,13 @@ btn.addEventListener('click', function(){
 let request = new XMLHttpRequest();
 
 request.onreadystatechange = ()=> {
-  let currencies = document.getElementById('currencies');
+  let rates = document.getElementById('rates');
   if(request.readyState === 4) {
     currencies.style.border = '1px solid #e8e8e8';
     if(request.status === 200) {
-      currencies.innerHTML = "These rates are from the base currency of euro's " + request.responseText;
+      rates.innerHTML = "These rates are from the base currency of euro's " + request.responseText;
     } else {
-      currencies.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+      rates.innerHTML = 'An error occurred: ' +  request.status + ' ' + request.statusText;
     }
   }
 }
