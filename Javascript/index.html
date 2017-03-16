@@ -1,11 +1,11 @@
-<html ng-app='CurrencyCalculator'>
+<html>
 
 <head>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
     <link href='css/styles.css' rel='stylesheet' />
 </head>
 
-<body ng-controller='bodyController'>
+<body>
     <nav class='navbar navbar-default navbar-default-top'>
         <ul class='nav navbar-nav'>
             <li><a href='index.html'>Home</a></li>
@@ -15,7 +15,6 @@
     </nav>
     <div class='container mainContent'>
         <h1 class='header'>Currency exchange calculator</h1>
-        <!-- {{ greeting }} -->
         <form class='form-inline text-center'>
             <div class='form-group'>
                 <label>
@@ -67,8 +66,8 @@
             <button class='btn btn-primary' type='submit' id='button'>See Current Rates</button>
         </div>
         <div class='container'>
-        <p class='text-center' id='currencies'></p>
-        <p class='text-center' id='rates'></p>
+            <p class='text-center' id='currencies'></p>
+            <p class='text-center' id='allRates'></p>
         </div>
     </div>
 </body>
@@ -77,7 +76,5 @@
 </footer>
 <script type='text/javascript' src='js/money.js'></script>
 <script type='text/javascript' src='js/call.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js'></script>
-<script src='js/main.js'></script>
 
 </html>
