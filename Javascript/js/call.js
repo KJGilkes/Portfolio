@@ -1,68 +1,54 @@
-let button = document.getElementById('button');
-let btn = document.getElementById('btn');
+const showRatesButton = document.getElementById('button');
+const submitBtn = document.getElementById('btn');
+//References to the hidden rates p tag below the show rates button
+let allRates = document.getElementById('allRates');
 
-fx.base = "EUR";
-fx.rates = {
-  "AUD": 1.4095,
-  "BGN": 1.9558,
-  "BRL": 3.3694,
-  "CAD": 1.4322,
-  "CHF": 1.0743,
-  "CNY": 7.3336,
-  "CZK": 27.021,
-  "DKK": 7.4331,
-  "GBP": 0.8725,
-  "HKD": 8.2367,
-  "HRK": 7.419,
-  "HUF": 312.27,
-  "IDR": 14186,
-  "ILS": 3.9086,
-  "INR": 70.672,
-  "JPY": 122.42,
-  "KRW": 1226.3,
-  "MXN": 20.968,
-  "MYR": 4.7231,
-  "NOK": 9.1405,
-  "NZD": 1.5348,
-  "PHP": 53.281,
-  "PLN": 4.3259,
-  "RON": 4.549,
-  "RUB": 62.696,
-  "SEK": 9.5778,
-  "SGD": 1.5041,
-  "THB": 37.556,
-  "TRY": 3.9801,
-  "USD": 1.0606,
-  "ZAR": 14.068,
-}
-
-btn.addEventListener('click', function(){
-  let amount = parseInt(document.getElementById('amount').value);
-  let currencyType = document.getElementById('currencyType').value;
-  let converted = fx(amount).from('EUR').to(currencyType);
-  let convertedCurrency = document.getElementById('currencies');
-  convertedCurrency.innerHTML = converted;
+//Adds an event listener on the submit button to listen for a click
+submitBtn.addEventListener('click', function() {
+    //Sets the amount variable to the user inputed amount
+    let amount = parseInt(document.getElementById('amount').value);
+    //Sets the type of currency to convert to the user selected currency
+    let currencyType = document.getElementById('currencyType').value;
+    //Converts the amount specified into the desired currency
+    let converted = fx(amount).from('USD').to(currencyType);
+    //Rounds the converted currency up or down
+    Math.round(converted);
+    //Refers to a p tag specified on the page below the see rates button.
+    let convertedCurrency = document.getElementById('currencies');
+    convertedCurrency.innerHTML = converted;
 })
 
 
+//XML HTTP Request
 
-
+//The XML HTTP Constructor initializes an XML HTTP Request
 let request = new XMLHttpRequest();
-
-request.onreadystatechange = ()=> {
-  let rates = document.getElementById('rates');
-  if(request.readyState === 4) {
-    currencies.style.border = '1px solid #e8e8e8';
-    if(request.status === 200) {
-      rates.innerHTML = "These rates are from the base currency of euro's " + request.responseText;
-    } else {
-      rates.innerHTML = 'An error occurred: ' +  request.status + ' ' + request.statusText;
+//Checks the XML request for the ready state to change
+request.onreadystatechange = () => {
+    //Checks the request object's ready state
+    if (request.readyState === 4) {
+        //Checks if the request responds with a status of 200
+        if (request.status === 200) {
+            //Parses through the request object's responseText property
+            var currencyRates = JSON.parse(request.responseText);
+            //Changes the text inside of the p tag for all rates to show the rates from the api
+            allRates.innerHTML = "These rates are from the base currency of euro's " + JSON.stringify(currencyRates['rates']);
+            //Declares the base currency to exchange currency to and from
+            fx.base = "USD";
+            //Sets the object of currency values to a new variable
+            let currencyValues = Object.values(currencyRates['rates']);
+            //Sets each of the rates for the library to exchange between
+            fx.rates = currencyValues;
+            console.log(currencyValues);
+        } else {
+            allRates.innerHTML = 'An error occurred: ' + request.status + ' ' + request.statusText;
+        }
     }
-  }
 }
-
+//Opens and xml http request to get data from the fixer api
 request.open('GET', 'http://api.fixer.io/latest');
 
-button.addEventListener('click', function() {
-  request.send();
+// WHen the button is clicked send the request
+showRatesButton.addEventListener('click', function() {
+    request.send();
 });
