@@ -30,16 +30,20 @@ request.onreadystatechange = () => {
         //Checks if the request responds with a status of 200
         if (request.status === 200) {
             //Parses through the request object's responseText property
-            var currencyRates = JSON.parse(request.responseText);
+            let currencyRates = JSON.parse(request.responseText);
+
+
             //Changes the text inside of the p tag for all rates to show the rates from the api
             allRates.innerHTML = "These rates are from the base currency of euro's " + JSON.stringify(currencyRates['rates']);
             //Declares the base currency to exchange currency to and from
             fx.base = "USD";
             //Sets the object of currency values to a new variable
             let currencyValues = Object.values(currencyRates['rates']);
+            for(property in currencyValues){
+              console.log(currencyValues[property]);
+            }
             //Sets each of the rates for the library to exchange between
             fx.rates = currencyValues;
-            console.log(currencyValues);
         } else {
             allRates.innerHTML = 'An error occurred: ' + request.status + ' ' + request.statusText;
         }
