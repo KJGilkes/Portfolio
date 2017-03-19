@@ -13,9 +13,13 @@ function Man(name, age){
 //Adds an event listener that listens for a button click
 button.addEventListener('click', function(){
   //Creates a variable with reference to the userInputName element from index.html with an id of manName
+  let displayGuy = document.getElementById('guy');
+  //Creates a variable with reference to the userInputName element from index.html with an id of manName
   let userInputName = document.getElementById('manName').value;
   //Creates a variable with reference to the userInputAge element from index.html with an id of manAge
   let userInputAge = document.getElementById('manAge').value;
   //Creates a new object called guy with a name and age taken from the user's input
   let guy = new Man(userInputName, userInputAge);
+  //Turns the object into a string and then displays it on the page
+  displayGuy.innerHTML = JSON.stringify(guy);
 });
