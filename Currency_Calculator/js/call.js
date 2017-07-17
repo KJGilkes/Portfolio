@@ -55,6 +55,4 @@ submitBtn.addEventListener('click', function() {
     convertedCurrency.innerHTML = converted;
 });
 
-
-
 request.send();
